@@ -1,6 +1,7 @@
 console.log("welcome to wordle!");
 let wordle = "TRAIL"
 let ting = new Audio('click.wav');
+let won = new Audio('won.mp3');
 let boxText = document.getElementsByClassName('box');
 let keyText = document.getElementsByClassName('keybox');
 let j = 0;
@@ -88,32 +89,37 @@ enter.addEventListener('click', () => {
             door = false;
             if (j == 5) {
                 setTimeout(() => {
+                    won.play();
                     alert("magnificent!")
                 }, 3000);
             }
             else if (j == 10) {
                 setTimeout(() => {
-
+                    won.play();
                     alert("Excellent!")
                 }, 3000);
             }
             else if (j == 15) {
                 setTimeout(() => {
+                    won.play();
                     alert("splendid!")
                 }, 3000);
             }
             else if (j == 20) {
                 setTimeout(() => {
+                    won.play();
                     alert("superb!")
                 }, 3000);
             }
             else if (j == 25) {
                 setTimeout(() => {
+                    won.play();
                     alert("great!")
                 }, 3000);
             }
             else if (j == 30) {
                 setTimeout(() => {
+                    won.play();
                     alert("phew!")
                 }, 3000);
             }
