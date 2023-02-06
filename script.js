@@ -9,6 +9,8 @@ let c = 0;
 let door = true;
 let enter = document.getElementById('enter');
 let del = document.getElementById('del');
+let button = document.getElementsByClassName('button');
+let img=document.getElementsByTagName('img');
 
 // console.log();
 
@@ -41,7 +43,8 @@ enter.addEventListener('click', () => {
             if (boxText[k + j - 5].innerHTML == wordle[k]) {
                 boxText[k + j - 5].style.transform = "rotateX(360deg)";
                 setTimeout(() => {
-                    boxText[k + j - 5].style.backgroundColor = "#00ff00";
+                    boxText[k + j - 5].style.backgroundColor = "green";
+                    boxText[k + j - 5].style.color = "white";
                     boxText[k + j - 5].style.transition = `background-color 1s ${k/5}s ease-in-out`;
                 }, 1500);
                 boxText[k + j - 5].style.transition = `transform 1s ${k/5}s ease-in-out`;
@@ -50,7 +53,8 @@ enter.addEventListener('click', () => {
             else if (wordle.includes(boxText[k + j - 5].innerHTML)) {
                 boxText[k + j - 5].style.transform = "rotateX(360deg)";
                 setTimeout(() => {
-                    boxText[k + j - 5].style.backgroundColor = "yellow";
+                    boxText[k + j - 5].style.backgroundColor = "rgba(173, 176, 22, 0.867)";
+                    boxText[k + j - 5].style.color = "white";
                     boxText[k + j - 5].style.transition = `background-color 1s ${k/5}s ease-in-out`;
                 }, 1500);
                 boxText[k + j - 5].style.transition = `transform 1s ${k / 5}s ease-in-out`;
@@ -58,7 +62,8 @@ enter.addEventListener('click', () => {
             else {
                 boxText[k + j - 5].style.transform = "rotateX(360deg)";
                 setTimeout(() => {
-                    boxText[k + j - 5].style.backgroundColor = "red";
+                    boxText[k + j - 5].style.backgroundColor = "rgba(46, 40, 40, 0.814)";
+                    boxText[k + j - 5].style.color = "white";
                     boxText[k + j - 5].style.transition = `background-color 1s ${k/5}s ease-in-out`;
                 }, 1500);
                 boxText[k + j - 5].style.transition = `transform 1s ${k / 5}s ease-in-out`;
@@ -73,10 +78,11 @@ enter.addEventListener('click', () => {
             }
             else if ((wordle.includes(document.getElementById(boxText[k + j - 5].innerHTML).innerHTML)) && (document.getElementById(boxText[k + j - 5].innerHTML).style.backgroundColor != "green")) {
                 // console.log(document.getElementById(boxText[k + j - 5].innerHTML).style.backgroundColor != "green");
-                document.getElementById(boxText[k + j - 5].innerHTML).style.backgroundColor = "yellow";
+                document.getElementById(boxText[k + j - 5].innerHTML).style.backgroundColor = "rgba(173, 176, 22, 0.867)";
             }
             else if (document.getElementById(boxText[k + j - 5].innerHTML).style.backgroundColor != "green") {
-                document.getElementById(boxText[k + j - 5].innerHTML).style.backgroundColor = "red";
+                document.getElementById(boxText[k + j - 5].innerHTML).style.backgroundColor = "rgba(46, 40, 40, 0.814)";
+                document.getElementById(boxText[k + j - 5].innerHTML).style.color = "white";
             }
         }
         door = true;
@@ -149,5 +155,15 @@ del.addEventListener('click', () => {
     if ((j) % 5 == 4) {
 
         door = true;
+    }
+})
+
+// how to play button
+button[0].addEventListener('click',()=>{
+    if(img[0].style.opacity==0){
+        img[0].style.opacity=1;
+    }
+    else{
+        img[0].style.opacity=0;
     }
 })
