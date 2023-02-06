@@ -74,11 +74,13 @@ enter.addEventListener('click', () => {
         for (let k = 0; k < 5; k++) {
             if ((document.getElementById(boxText[k + j - 5].innerHTML).innerHTML) == wordle[k]) {
                 document.getElementById(boxText[k + j - 5].innerHTML).style.backgroundColor = "green";
+                document.getElementById(boxText[k + j - 5].innerHTML).style.color = "white";
                 // console.log(document.getElementById(boxText[k + j - 5].innerHTML).style.backgroundColor);
             }
             else if ((wordle.includes(document.getElementById(boxText[k + j - 5].innerHTML).innerHTML)) && (document.getElementById(boxText[k + j - 5].innerHTML).style.backgroundColor != "green")) {
                 // console.log(document.getElementById(boxText[k + j - 5].innerHTML).style.backgroundColor != "green");
                 document.getElementById(boxText[k + j - 5].innerHTML).style.backgroundColor = "rgba(173, 176, 22, 0.867)";
+                document.getElementById(boxText[k + j - 5].innerHTML).style.color = "white";
             }
             else if (document.getElementById(boxText[k + j - 5].innerHTML).style.backgroundColor != "green") {
                 document.getElementById(boxText[k + j - 5].innerHTML).style.backgroundColor = "rgba(46, 40, 40, 0.814)";
