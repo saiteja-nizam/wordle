@@ -9,9 +9,8 @@ let door = true;
 let enter = document.getElementById('enter');
 let del = document.getElementById('del');
 let button = document.getElementsByClassName('button');
-let img=document.getElementsByTagName('img');
+let img = document.getElementsByTagName('img');
 
-// console.log();
 
 
 Array.from(keyText).forEach((element) => {
@@ -35,27 +34,27 @@ Array.from(keyText).forEach((element) => {
 enter.addEventListener('click', () => {
     if (j % 5 == 0) {
         ting.play();
-        if(wordInList()){
+        if (wordInList()) {
 
             // For game board keys color status
-    
+
             for (let k = 0; k < 5; k++) {
                 if (boxText[k + j - 5].innerHTML == wordle[k]) {
                     boxText[k + j - 5].style.transform = "rotateX(360deg)";
                     setTimeout(() => {
                         boxText[k + j - 5].style.backgroundColor = "green";
                         boxText[k + j - 5].style.color = "white";
-                        boxText[k + j - 5].style.transition = `background-color 1s ${k/5}s ease-in-out`;
+                        boxText[k + j - 5].style.transition = `background-color 1s ${k / 5}s ease-in-out`;
                     }, 1500);
-                    boxText[k + j - 5].style.transition = `transform 1s ${k/5}s ease-in-out`;
-    
+                    boxText[k + j - 5].style.transition = `transform 1s ${k / 5}s ease-in-out`;
+
                 }
                 else if (wordle.includes(boxText[k + j - 5].innerHTML)) {
                     boxText[k + j - 5].style.transform = "rotateX(360deg)";
                     setTimeout(() => {
                         boxText[k + j - 5].style.backgroundColor = "rgba(173, 176, 22, 0.867)";
                         boxText[k + j - 5].style.color = "white";
-                        boxText[k + j - 5].style.transition = `background-color 1s ${k/5}s ease-in-out`;
+                        boxText[k + j - 5].style.transition = `background-color 1s ${k / 5}s ease-in-out`;
                     }, 1500);
                     boxText[k + j - 5].style.transition = `transform 1s ${k / 5}s ease-in-out`;
                 }
@@ -64,12 +63,12 @@ enter.addEventListener('click', () => {
                     setTimeout(() => {
                         boxText[k + j - 5].style.backgroundColor = "rgba(46, 40, 40, 0.814)";
                         boxText[k + j - 5].style.color = "white";
-                        boxText[k + j - 5].style.transition = `background-color 1s ${k/5}s ease-in-out`;
+                        boxText[k + j - 5].style.transition = `background-color 1s ${k / 5}s ease-in-out`;
                     }, 1500);
                     boxText[k + j - 5].style.transition = `transform 1s ${k / 5}s ease-in-out`;
                 }
             }
-    
+
             // For keyboard keys color status
             for (let k = 0; k < 5; k++) {
                 if ((document.getElementById(boxText[k + j - 5].innerHTML).innerHTML) == wordle[k]) {
@@ -100,40 +99,40 @@ enter.addEventListener('click', () => {
                 if (j == 5) {
                     setTimeout(() => {
                         won.play();
-                        alert("magnificent!")
+                        alert("Genius!")
                     }, 3000);
                 }
                 else if (j == 10) {
                     setTimeout(() => {
                         won.play();
-                        alert("Excellent!")
+                        alert("Magnificent!")
                     }, 3000);
                 }
                 else if (j == 15) {
                     setTimeout(() => {
                         won.play();
-                        alert("splendid!")
+                        alert("Splendid!")
                     }, 3000);
                 }
                 else if (j == 20) {
                     setTimeout(() => {
                         won.play();
-                        alert("superb!")
+                        alert("Superb!")
                     }, 3000);
                 }
                 else if (j == 25) {
                     setTimeout(() => {
                         won.play();
-                        alert("great!")
+                        alert("Great!")
                     }, 3000);
                 }
                 else if (j == 30) {
                     setTimeout(() => {
                         won.play();
-                        alert("phew!")
+                        alert("Phew!")
                     }, 3000);
                 }
-    
+
             }
             else if (j == 30) {
                 setTimeout(() => {
@@ -144,7 +143,7 @@ enter.addEventListener('click', () => {
                 c = 0;
             }
         }
-        else{
+        else {
             alert("enter a valid word")
         }
 
@@ -168,30 +167,29 @@ del.addEventListener('click', () => {
 })
 
 // how to play button
-button[0].addEventListener('click',()=>{
-    if(img[0].style.opacity==0){
-        img[0].style.opacity=1;
+button[0].addEventListener('click', () => {
+    if (img[0].style.opacity == 0) {
+        img[0].style.opacity = 1;
     }
-    else{
-        img[0].style.opacity=0;
+    else {
+        img[0].style.opacity = 0;
     }
 })
 
 // function to check whether it is valid word
-function wordInList(){
-    let entry=""
-    for(let k=0;k<5;k++){
-        entry+=boxText[k + j - 5].innerHTML
+function wordInList() {
+    let entry = ""
+    for (let k = 0; k < 5; k++) {
+        entry += boxText[k + j - 5].innerHTML
     }
-    console.log(entry)
-    if(words_arr.includes(entry.toLowerCase())){
+    if (words_arr.includes(entry.toLowerCase())) {
         return true
     }
 }
 
 
 // creating words list
-var words_list=`which
+var words_list = `which
 there
 their
 about
@@ -5949,6 +5947,6 @@ rumba
 biffy
 pupal`
 // converting words_list to array and choosing wordle randomly.
-var words_arr=words_list.split("\n")
-var wordle = words_arr[Math.floor(Math.random()*words_arr.length)].toUpperCase()
+var words_arr = words_list.split("\n")
+var wordle = words_arr[Math.floor(Math.random() * words_arr.length)].toUpperCase()
 console.log(wordle)
